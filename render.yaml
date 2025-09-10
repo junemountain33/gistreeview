@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: GISTREEVIEW-backend
+    env: node
+    branch: main
+    repo: "https://github.com/lewulelekcinta/free-react-tailwind-admin-dashboard"
+    plan: free
+    servicePath: backend
+    buildCommand: "npm install --legacy-peer-deps"
+  startCommand: "bash -lc \"npx prisma migrate deploy && npm start\""
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: UPLOAD_DIR
+        value: "/tmp/uploads"
+      - key: CORS_ORIGIN
+        value: ""
+
+  - type: static
+    name: GISTREEVIEW-frontend
+    env: static
+    branch: main
+    repo: "https://github.com/lewulelekcinta/free-react-tailwind-admin-dashboard"
+    plan: free
+    servicePath: frontend
+    buildCommand: "npm install --legacy-peer-deps && npm run build"
+    staticPublishPath: frontend/dist

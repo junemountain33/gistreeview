@@ -1,0 +1,16 @@
+# node_modules
+node_modules/
+
+# Env files
+.env
+
+# Uploads (if you don't want to store images in repo)
+public/uploads/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
