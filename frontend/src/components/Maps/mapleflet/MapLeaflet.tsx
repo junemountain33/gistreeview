@@ -7,29 +7,7 @@ import "leaflet/dist/leaflet.css";
 import ButtonMaps from "./ButtonMaps";
 import RoadModal from "./RoadModal";
 // Hapus dummy data, fetch dari backend
-// Tipe data pohon dan gambar
-interface TreeData {
-  id: string;
-  latitude: number;
-  longitude: number;
-  species: string;
-  age: number;
-  trunk_diameter: number;
-  lbranch_width: number;
-  ownership: string;
-  street_name: string;
-  description: string;
-  status: string;
-  timestamp: string;
-  roadId?: string;
-}
-
-interface TreePicture {
-  id: string;
-  url: string;
-  treeId: string;
-  uploaded: string;
-}
+import { TreeData, TreePicture } from "../../../types/tree";
 
 const AMBON_CENTER = [-3.6978, 128.1814];
 
@@ -86,7 +64,17 @@ const MapLeaflet: React.FC<MapLeafletProps> = ({
   useEffect(() => {
     fetch(apiUrl("/api/trees"))
       .then((res) => res.json())
-      .then((data) => setTreeData(data));
+      .then((data) => {
+        // Transform timestamp to number
+        const transformedData = data.map((tree: TreeData) => ({
+          ...tree,
+          timestamp:
+            typeof tree.timestamp === "string"
+              ? Number(tree.timestamp)
+              : tree.timestamp,
+        }));
+        setTreeData(transformedData);
+      });
     fetch(apiUrl("/api/treepictures"))
       .then((res) => res.json())
       .then((data) => setTreePictures(data));

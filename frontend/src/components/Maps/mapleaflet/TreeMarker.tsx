@@ -2,7 +2,7 @@ import React from "react";
 import { Marker } from "react-leaflet";
 import L from "leaflet";
 
-import type { TreeData, TreePicture } from "./MapLeaflet";
+import type { TreeData, TreePicture } from "./types";
 
 interface TreeMarkerProps {
   tree: TreeData;

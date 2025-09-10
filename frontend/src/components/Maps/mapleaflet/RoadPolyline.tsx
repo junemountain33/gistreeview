@@ -1,7 +1,7 @@
 import React from "react";
 import { Polyline, Popup } from "react-leaflet";
 
-import type { Road } from "../mapleflet/MapLeaflet";
+import type { Road } from "./types";
 
 interface RoadPolylineProps {
   road: Road;

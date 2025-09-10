@@ -1,10 +1,5 @@
-interface TreePicture {
-  id: string;
-  url: string;
-  treeId: string;
-  uploaded: string;
-}
 import React from "react";
+import { TreeData, TreePicture } from "../../types/tree";
 import { apiUrl } from "../../config/api";
 import PageBreadcrumb from "../../components/common/PageBreadCrumb";
 import PageMeta from "../../components/common/PageMeta";
@@ -14,21 +9,6 @@ import Alert from "../../components/ui/alert/Alert";
 // Tipe data untuk laporan pohon
 interface ReportForm {
   description: string;
-}
-
-interface TreeData {
-  id: string;
-  latitude: number;
-  longitude: number;
-  species: string;
-  age: number;
-  trunk_diameter: number;
-  lbranch_width: number;
-  ownership: string;
-  street_name: string;
-  description: string;
-  status: string;
-  timestamp: string;
 }
 
 function ModalPreview({ img, onClose }: { img: string; onClose: () => void }) {
@@ -110,7 +90,7 @@ const UserDashboard: React.FC = () => {
                 Klik tombol <b>Lapor</b> pada detail pohon.
               </li>
             </ol>
-            <ol className="flex-1 list-decimal pl-5 space-y-1" start="4">
+            <ol className="flex-1 list-decimal pl-5 space-y-1" start={4}>
               <li>Isi deskripsi laporan secara jelas dan lengkap.</li>
               <li>
                 Sertakan bukti foto (bisa lebih dari satu) untuk memperkuat
@@ -137,7 +117,15 @@ const UserDashboard: React.FC = () => {
           >
             <MapLeaflet
               onTreeClick={(tree: TreeData) => {
-                setSelectedTree(tree);
+                // Convert timestamp to number if it's a string
+                const transformedTree = {
+                  ...tree,
+                  timestamp:
+                    typeof tree.timestamp === "string"
+                      ? Number(tree.timestamp)
+                      : tree.timestamp,
+                };
+                setSelectedTree(transformedTree);
                 setShowCard(true);
                 setShowReportForm(false);
               }}
@@ -247,7 +235,9 @@ const UserDashboard: React.FC = () => {
                           Waktu Input:
                         </td>
                         <td className="py-1">
-                          {new Date(selectedTree.timestamp).toLocaleString()}
+                          {new Date(
+                            Number(selectedTree.timestamp)
+                          ).toLocaleString()}
                         </td>
                       </tr>
                     </tbody>

@@ -43,6 +43,22 @@ app.get("/", (req, res) => {
   res.json({ message: "Backend API is running" });
 });
 
+app.get("/api/testdb", async (req, res) => {
+  try {
+    const result = await prisma.$queryRaw`SELECT NOW()`;
+    res.json({
+      status: "Database connected",
+      timestamp: result[0].now,
+      database_url: process.env.DATABASE_URL?.split("@")[1], // hanya tampilkan host, sembunyikan credentials
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "Database connection failed",
+      error: error.message,
+    });
+  }
+});
+
 // Example: get all trees (assuming model Tree exists)
 app.get("/trees", async (req, res) => {
   const trees = await prisma.tree.findMany();

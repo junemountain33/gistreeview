@@ -5,7 +5,7 @@ REM Usage: railway-deploy.bat backend|frontend|all
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-nIF "%1"=="" (
+IF "%1"=="" (
   ECHO Usage: %0 backend^|frontend^|all
   EXIT /B 1
 )

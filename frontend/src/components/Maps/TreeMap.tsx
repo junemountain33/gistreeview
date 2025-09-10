@@ -15,7 +15,7 @@ const TreeMap: React.FC<TreeMapProps> = ({ mapColor }) => {
       markerStyle={{
         initial: {
           fill: "#465FFF",
-          r: 4, // Custom radius for markers
+          scale: 0.4,
         },
       }}
       markersSelectable={true}

@@ -54,6 +54,9 @@ function findMostSimilarRoad(
 interface RoadOption {
   id: string;
   nameroad: string;
+  geometry: {
+    coordinates: number[][];
+  };
 }
 interface Tree {
   id: string;

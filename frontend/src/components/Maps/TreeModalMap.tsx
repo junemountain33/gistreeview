@@ -54,7 +54,7 @@ function LocationMarker({
     }
   }, [latitude, longitude]);
 
-  const map = useMapEvents({
+  useMapEvents({
     click(e) {
       setPosition(e.latlng);
       onLocationChange(e.latlng.lat, e.latlng.lng);
