@@ -14,7 +14,7 @@ Environment variables (backend)
 
 - DATABASE_URL: postgres://<user>:<password>@<host>:5432/<db>
 - UPLOAD_DIR: /tmp/uploads (or configure object storage)
-- CORS_ORIGIN: https://<frontend-railway-url> (or * for testing)
+- CORS_ORIGIN: https://<frontend-railway-url> (or \* for testing)
 
 Environment variables (frontend)
 
@@ -56,6 +56,7 @@ Troubleshooting
 - Prisma errors: ensure `DATABASE_URL` is valid and database is reachable from Railway.
 
 If you want, I can:
+
 - Help encode your password into the connection string safely and verify format.
 - Generate the exact `DATABASE_URL` string from your DB details (you must paste the host/user/db name; avoid pasting the password if you want to keep it secret).
 
@@ -64,6 +65,7 @@ Railway CLI (optional)
 You can use the Railway CLI to link and deploy services from your machine. I included a small Windows helper script `railway-deploy.bat` that runs `railway init` and `railway up` for the `backend` and `frontend` folders.
 
 Prereqs:
+
 - Install Railway CLI: https://railway.app/docs/cli
 - Login: `railway login`
 
@@ -76,5 +78,6 @@ railway-deploy.bat all
 ```
 
 Notes:
+
 - `railway init` will prompt you to create or link to an existing Railway project/service. During init, choose the correct service path (`backend` or `frontend`).
 - After linking, `railway up` deploys the service and shows logs. Set environment variables in the Railway web dashboard (recommended) or via `railway variables set`.

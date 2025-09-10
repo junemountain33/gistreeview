@@ -1,1 +1,8 @@
 nama db = gistreeview
+
+cd /d d:\hosting\GISTREEVIEW
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+gh repo create cintalewulelek/gistreeview --public --source=. --remote=origin --push

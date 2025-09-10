@@ -3,7 +3,7 @@ services:
     name: GISTREEVIEW-backend
     env: node
     branch: main
-  repo: "https://github.com/lewulelekcinta/GISTREEVIEW.git"
+  repo: "https://github.com/cintalewulelek/gistreeview.git"
     plan: free
     servicePath: backend
     buildCommand: "npm install --legacy-peer-deps"
@@ -20,7 +20,7 @@ services:
     name: GISTREEVIEW-frontend
     env: static
     branch: main
-  repo: "https://github.com/lewulelekcinta/GISTREEVIEW.git"
+  repo: "https://github.com/cintalewulelek/gistreeview.git"
     plan: free
     servicePath: frontend
     buildCommand: "npm install --legacy-peer-deps && npm run build"
