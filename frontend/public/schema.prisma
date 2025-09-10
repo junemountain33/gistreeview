@@ -1,0 +1,122 @@
+// schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  admin
+  officer
+  user
+}
+
+enum TreeStatus {
+  good
+  warning
+  danger
+}
+
+enum ReportStatus {
+  pending
+  approved
+  rejected
+  resolved
+}
+
+model User {
+  id          String   @id @default(uuid())
+  firstname   String
+  lastname    String
+  email       String   @unique
+  password    String
+  phone       String?
+  userpic     String?
+  bio         String?
+  address     String?
+  country     String?
+  province    String?
+  city        String?
+  postalcode  String?
+  role        Role     @default(user)
+  timestamp   DateTime @default(now())
+  reports     Report[] @relation("Reporter")
+  verified    Report[] @relation("Verifier")
+  resolved    Report[] @relation("Resolver")
+
+  @@map("user")
+}
+
+model Tree {
+  id             String     @id @default(uuid())
+  latitude       Float
+  longitude      Float
+  species        String?
+  age            Int?
+  trunk_diameter Float?
+  lbranch_width  Float?
+  ownership      String?
+  street_name    String?
+  description    String?
+  status         TreeStatus @default(good)
+  timestamp      DateTime   @default(now())
+  reports        Report[]
+  treePictures   TreePicture[]
+
+  @@map("tree")
+}
+
+model Road {
+  id          String   @id @default(uuid())
+  nameroad    String?
+  description String?
+  roadPictures RoadPicture[]
+
+  @@map("road")
+}
+
+model Report {
+  id           String       @id @default(uuid())
+  user         User?        @relation("Reporter", fields: [userId], references: [id])
+  userId       String?
+  tree         Tree?        @relation(fields: [treeId], references: [id])
+  treeId       String?
+  description  String?
+  status       ReportStatus @default(pending)
+  timestamp    DateTime     @default(now())
+  verifiedBy   User?        @relation("Verifier", fields: [verifiedById], references: [id])
+  verifiedById String?
+  resolvedBy   User?        @relation("Resolver", fields: [resolvedById], references: [id])
+  resolvedById String?
+  resolvedAt   DateTime?
+  reportPictures ReportPicture[]
+
+  @@map("report")
+}
+
+model TreePicture {
+  id        String   @id @default(uuid())
+  url       String
+  tree      Tree     @relation(fields: [treeId], references: [id])
+  treeId    String
+  uploaded  DateTime @default(now())
+}
+
+model RoadPicture {
+  id        String   @id @default(uuid())
+  url       String
+  road      Road     @relation(fields: [roadId], references: [id])
+  roadId    String
+  uploaded  DateTime @default(now())
+}
+
+model ReportPicture {
+  id        String   @id @default(uuid())
+  url       String
+  report    Report   @relation(fields: [reportId], references: [id])
+  reportId  String
+  uploaded  DateTime @default(now())
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "RP1",
+    "url": "road-one.jpg",
+    "roadId": "R1",
+    "uploaded": "2025-08-05T10:00:00Z"
+  },
+  {
+    "id": "RP2",
+    "url": "road-two.jpg",
+    "roadId": "R2",
+    "uploaded": "2025-08-05T10:01:00Z"
+  },
+  {
+    "id": "RP3",
+    "url": "road-three.jpg",
+    "roadId": "R3",
+    "uploaded": "2025-08-05T10:02:00Z"
+  },
+  {
+    "id": "RP4",
+    "url": "road-four.jpg",
+    "roadId": "R4",
+    "uploaded": "2025-08-05T10:03:00Z"
+  },
+  {
+    "id": "RP5",
+    "url": "road-five.jpg",
+    "roadId": "R5",
+    "uploaded": "2025-08-05T10:04:00Z"
+  },
+  {
+    "id": "RP6",
+    "url": "road-six.jpg",
+    "roadId": "R6",
+    "uploaded": "2025-08-05T10:05:00Z"
+  },
+  {
+    "id": "RP7",
+    "url": "road-seven.jpg",
+    "roadId": "R7",
+    "uploaded": "2025-08-05T10:06:00Z"
+  },
+  {
+    "id": "RP8",
+    "url": "road-eight.jpg",
+    "roadId": "R8",
+    "uploaded": "2025-08-05T10:07:00Z"
+  },
+  {
+    "id": "RP9",
+    "url": "road-nine.jpg",
+    "roadId": "R9",
+    "uploaded": "2025-08-05T10:08:00Z"
+  },
+  {
+    "id": "RP10",
+    "url": "road-ten.jpg",
+    "roadId": "R10",
+    "uploaded": "2025-08-05T10:09:00Z"
+  }
+]

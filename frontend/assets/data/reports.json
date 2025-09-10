@@ -1,0 +1,112 @@
+[
+  {
+    "id": "REP1",
+    "userId": "1",
+    "treeId": "T1",
+    "description": "Pohon menghalangi jalan",
+    "status": "pending",
+    "timestamp": "2025-08-05T10:00:00Z",
+    "verifiedById": null,
+    "resolvedById": null,
+    "resolvedAt": null
+  },
+  {
+    "id": "REP2",
+    "userId": "2",
+    "treeId": "T2",
+    "description": "Dahan pohon patah",
+    "status": "pending",
+    "timestamp": "2025-08-05T10:05:00Z",
+    "verifiedById": null,
+    "resolvedById": null,
+    "resolvedAt": null
+  },
+  {
+    "id": "REP3",
+    "userId": "3",
+    "treeId": "T3",
+    "description": "Akar pohon merusak trotoar",
+    "status": "pending",
+    "timestamp": "2025-08-05T10:10:00Z",
+    "verifiedById": null,
+    "resolvedById": null,
+    "resolvedAt": null
+  },
+  {
+    "id": "REP4",
+    "userId": "4",
+    "treeId": "T4",
+    "description": "Pohon tumbang di jalan utama",
+    "status": "approved",
+    "timestamp": "2025-08-05T10:15:00Z",
+    "verifiedById": "5",
+    "resolvedById": null,
+    "resolvedAt": null
+  },
+  {
+    "id": "REP5",
+    "userId": "5",
+    "treeId": "T5",
+    "description": "Pohon butuh pemangkasan",
+    "status": "approved",
+    "timestamp": "2025-08-05T10:20:00Z",
+    "verifiedById": "6",
+    "resolvedById": null,
+    "resolvedAt": null
+  },
+  {
+    "id": "REP6",
+    "userId": "6",
+    "treeId": "T6",
+    "description": "Pohon mengganggu kabel listrik",
+    "status": "approved",
+    "timestamp": "2025-08-05T10:25:00Z",
+    "verifiedById": "7",
+    "resolvedById": null,
+    "resolvedAt": null
+  },
+  {
+    "id": "REP7",
+    "userId": "7",
+    "treeId": "T7",
+    "description": "Pohon sudah dipangkas",
+    "status": "resolved",
+    "timestamp": "2025-08-05T10:30:00Z",
+    "verifiedById": "8",
+    "resolvedById": "9",
+    "resolvedAt": "2025-08-06T09:00:00Z"
+  },
+  {
+    "id": "REP8",
+    "userId": "8",
+    "treeId": "T8",
+    "description": "Pohon sudah diangkat dari jalan",
+    "status": "resolved",
+    "timestamp": "2025-08-05T10:35:00Z",
+    "verifiedById": "10",
+    "resolvedById": "11",
+    "resolvedAt": "2025-08-06T09:30:00Z"
+  },
+  {
+    "id": "REP9",
+    "userId": "9",
+    "treeId": "T9",
+    "description": "Pohon sudah diganti baru",
+    "status": "resolved",
+    "timestamp": "2025-08-05T10:40:00Z",
+    "verifiedById": "12",
+    "resolvedById": "13",
+    "resolvedAt": "2025-08-06T10:00:00Z"
+  },
+  {
+    "id": "REP10",
+    "userId": "10",
+    "treeId": "T10",
+    "description": "Pohon sehat dan tumbuh baik",
+    "status": "approved",
+    "timestamp": "2025-08-05T10:45:00Z",
+    "verifiedById": "14",
+    "resolvedById": null,
+    "resolvedAt": null
+  }
+]
